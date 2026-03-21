@@ -5,6 +5,7 @@ from typing import Any
 
 from homeassistant.components.media_player import (
     MediaPlayerEntity,
+    MediaPlayerEntityFeature,
     MediaPlayerState,
     MediaType,
 )
@@ -43,7 +44,7 @@ class GrooveprintMediaPlayer(
     _attr_has_entity_name = True
     _attr_name = None
     _attr_media_content_type = MediaType.MUSIC
-    _attr_supported_features = 0
+    _attr_supported_features = MediaPlayerEntityFeature(0)
 
     def __init__(
         self, coordinator: GrooveprintCoordinator, entry: ConfigEntry
