@@ -1,0 +1,22 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to Grooveprint",
+        "description": "Enter the URLs of your Grooveprint server and listening app.",
+        "data": {
+          "server_url": "Server URL",
+          "listener_url": "Listening app URL"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect_server": "Cannot connect to Grooveprint server.",
+      "cannot_connect_listener": "Cannot connect to listening app.",
+      "unknown": "Unexpected error occurred."
+    },
+    "abort": {
+      "already_configured": "This server is already configured."
+    }
+  }
+}
