@@ -8,7 +8,9 @@ CONF_LISTENER_URL = "listener_url"
 DEFAULT_SERVER_URL = "http://localhost:8457"
 DEFAULT_LISTENER_URL = "http://localhost:8458"
 
-PLATFORMS = ["media_player", "sensor", "switch"]
+from homeassistant.const import Platform
+
+PLATFORMS = [Platform.MEDIA_PLAYER, Platform.SENSOR, Platform.SWITCH]
 
 RECONNECT_INTERVAL = 5  # seconds
 LISTENER_POLL_INTERVAL = 5  # seconds

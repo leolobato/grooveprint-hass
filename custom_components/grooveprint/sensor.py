@@ -8,7 +8,7 @@ from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from .const import DOMAIN
+from .const import CONF_SERVER_URL, DOMAIN
 from .coordinator import GrooveprintCoordinator
 
 ICON_MAP = {
@@ -45,7 +45,7 @@ class GrooveprintStatusSensor(
         super().__init__(coordinator)
         self._attr_unique_id = f"{entry.entry_id}_status"
         self._attr_device_info = DeviceInfo(
-            identifiers={(DOMAIN, entry.entry_id)},
+            identifiers={(DOMAIN, entry.data[CONF_SERVER_URL])},
             name="Grooveprint",
             manufacturer="Grooveprint",
         )

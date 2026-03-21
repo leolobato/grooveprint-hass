@@ -72,6 +72,9 @@ class GrooveprintCoordinator(DataUpdateCoordinator[dict[str, Any]]):
                 if resp.status == 200:
                     self._now_playing = await resp.json()
                     self._server_available = True
+                else:
+                    _LOGGER.warning("GET /now-playing returned %s", resp.status)
+                    self._server_available = False
         except (aiohttp.ClientError, asyncio.TimeoutError):
             self._server_available = False
         return self._build_data()

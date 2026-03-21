@@ -53,7 +53,7 @@ class GrooveprintMediaPlayer(
         self._server_url = entry.data[CONF_SERVER_URL]
         self._attr_unique_id = f"{entry.entry_id}_media_player"
         self._attr_device_info = DeviceInfo(
-            identifiers={(DOMAIN, entry.entry_id)},
+            identifiers={(DOMAIN, entry.data[CONF_SERVER_URL])},
             name="Grooveprint",
             manufacturer="Grooveprint",
         )
