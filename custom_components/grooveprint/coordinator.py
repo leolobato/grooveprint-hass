@@ -191,8 +191,8 @@ class GrooveprintCoordinator(DataUpdateCoordinator[dict[str, Any]]):
             async with session.post(
                 f"{self.listener_url}/start",
                 timeout=aiohttp.ClientTimeout(total=5),
-            ):
-                pass
+            ) as resp:
+                _LOGGER.debug("Start listening response: %s", resp.status)
         except (aiohttp.ClientError, asyncio.TimeoutError) as err:
             _LOGGER.error("Failed to start listening: %s", err)
 
@@ -203,7 +203,7 @@ class GrooveprintCoordinator(DataUpdateCoordinator[dict[str, Any]]):
             async with session.post(
                 f"{self.listener_url}/stop",
                 timeout=aiohttp.ClientTimeout(total=5),
-            ):
-                pass
+            ) as resp:
+                _LOGGER.debug("Stop listening response: %s", resp.status)
         except (aiohttp.ClientError, asyncio.TimeoutError) as err:
             _LOGGER.error("Failed to stop listening: %s", err)
